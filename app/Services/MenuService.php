@@ -20,4 +20,12 @@ class MenuService {
         return $this->repo->getAllDishes();
     }
 
+    public function getDishById( $id ) {
+        $dish = $this->repo->getDishById($id);
+        $dish->complementos = $this->repo->getDishComplementsByIdDish($id);
+        $dish->extras = $this->repo->getDishExtrasByIdDish($id);
+
+        return $dish;
+    }
+
 }

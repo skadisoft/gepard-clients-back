@@ -15,4 +15,20 @@ class MenuRepository {
         return Dish::all();
     }
 
+    public function getDishById($id) {
+        return Dish::find($id);
+    }
+
+    public function getDishComplementsByIdDish( $idDish ) {
+        return app("db")->connection("menudb")->select(
+            "SELECT c.* FROM platillos_complementos pc INNER JOIN complementos c ON pc.idComplemento = c.id WHERE pc.idPlatillo = {$idDish}"
+        );
+    }
+
+    public function getDishExtrasByIdDish( $idDish ) {
+        return app("db")->connection("menudb")->select(
+            "SELECT c.* FROM platillos_extras pe INNER JOIN extras c ON pe.idExtra = c.id WHERE pe.idPlatillo = {$idDish}"
+        );
+    }
+
 }

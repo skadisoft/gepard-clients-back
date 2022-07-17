@@ -19,4 +19,9 @@ class MenuController extends Controller
     public function getAllCategories( Request $request, MenuService $service ) {
         return response()->json( $service->getAllCategories() );
     }
+
+    public function getDishById( $id, MenuService $service ) {
+        return response()->json( $service->getDishById( $id ) );
+    }
+
 }
