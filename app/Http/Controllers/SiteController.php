@@ -18,4 +18,9 @@ class SiteController extends Controller
         return response()->json( $service->getAllSites() );
     }
 
+    public function GetSiteById($id, SiteService $service) {
+        $site = $service->getById($id);
+        return response()->json( $site, (isset($site) ? 200 : 404) );
+    }
+
 }

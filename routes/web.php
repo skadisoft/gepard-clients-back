@@ -17,12 +17,14 @@ $router->group(["prefix" => "api/v1", "middleware", "cors"],function() use($rout
 
     $router->group(["prefix" => "menu"], function() use($router){
         $router->get("", "MenuController@getAllDishes");
-        $router->get("dish/{id}", "MenuController@getDishById");
+        $router->get("dish/{id:[0-9]+}", "MenuController@getDishById");
+        $router->get("dish/site/{idSite:[0-9]+}", "MenuController@getDishByIdSite");
         $router->get("categories", "MenuController@getAllCategories");
     });
 
     $router->group(["prefix" => "site"], function() use($router){
         $router->get("", "SiteController@getAllSites");
+        $router->get("{id}", "SiteController@GetSiteById");
     });
 
 });

@@ -24,4 +24,8 @@ class MenuController extends Controller
         return response()->json( $service->getDishById( $id ) );
     }
 
+    public function getDishByIdSite($idSite, MenuService $service) {
+        return response()->json( $service->getDishByIdSite($idSite) );
+    }
+
 }

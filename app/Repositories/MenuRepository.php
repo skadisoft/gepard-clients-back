@@ -31,4 +31,11 @@ class MenuRepository {
         );
     }
 
+    public function getDishByIdSite($idSite) {
+        return Dish::where("idSitio", $idSite)
+        ->where("eliminado", 0)
+        ->where("disponible", 1)
+        ->get();
+    }
+
 }

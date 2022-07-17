@@ -28,4 +28,8 @@ class MenuService {
         return $dish;
     }
 
+    public function getDishByIdSite( $idSite ) {
+        return $this->repo->getDishByIdSite( $idSite );
+    }
+
 }

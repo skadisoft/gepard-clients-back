@@ -10,4 +10,9 @@ class SiteRepository {
         return Site::all();
     }
 
+    public function getById( $id ) {
+
+        return Site::find($id);
+    }
+
 }
